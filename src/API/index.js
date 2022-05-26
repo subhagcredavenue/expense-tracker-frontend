@@ -107,5 +107,6 @@ export const sendTransactionHistory=()=>{
     }
   }
   )
+  notify("Transaction history sent on your email");
 
 }
