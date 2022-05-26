@@ -96,3 +96,16 @@ export const newSignUp = (e) => {
     
 
 };
+
+export const sendTransactionHistory=()=>{
+  const userId = getActiveUserID();
+  fetch(`${BASE_URL}/${userId}/transactions/send_transaction_history`,
+  {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    }
+  }
+  )
+
+}

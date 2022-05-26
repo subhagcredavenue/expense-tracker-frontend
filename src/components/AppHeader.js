@@ -13,18 +13,25 @@ import {
 import { DownOutlined } from "@ant-design/icons";
 import { getSession } from "../utility";
 import logo from '../icon.webp'
+import { sendTransactionHistory } from "../API";
 const { Header, Content, Footer } = Layout;
 
 const AppHeader = ({ children, logout }) => {
   const menu = (
     <Menu
       items={[
+        {
+          onClick: () => sendTransactionHistory(),
+          
+          label: "Email transactions",
+          key: "1",
+        },
         
         {
           onClick: () => logout(),
           danger: true,
           label: "Log out",
-          key: "1",
+          key: "2",
         },
       ]}
     />
