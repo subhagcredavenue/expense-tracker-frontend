@@ -50,3 +50,8 @@ export const generateRandomUser=()=>{
     }
     
 }
+
+export const encrypt=(string)=>{
+    return btoa(string)
+
+}

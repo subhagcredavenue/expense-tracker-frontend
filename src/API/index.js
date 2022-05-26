@@ -1,17 +1,18 @@
 import { notify } from "../utility/Notification";
-import { getActiveUserID, setSession } from "../utility";
-import { newEmailSuccess, NOTIFICATION_TYPE } from "../utility/constants";
+import { encrypt, getActiveUserID, setSession } from "../utility";
+import { BASE_URL, newEmailSuccess, NOTIFICATION_TYPE } from "../utility/constants";
 
 export const getTransactions = async (user) => {
   const userId = getActiveUserID();
+  
   return await fetch(
-    `http://localhost:3000/users/${userId}/transactions`
+    `${BASE_URL}/${userId}/transactions`
   );
 };
 
 export const createTransaction = (newTrans) => {
   const userId = getActiveUserID();
-  fetch(`http://localhost:3000/users/${userId}/transactions`, {
+  fetch(`${BASE_URL}/${userId}/transactions`, {
     method: "POST",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
@@ -24,7 +25,7 @@ export const createTransaction = (newTrans) => {
 
 export const updateTransaction = (updateTrans, id) => {
   const userId = getActiveUserID();
-  fetch(`http://localhost:3000/users/${userId}/transactions/${id.$oid}`, {
+  fetch(`${BASE_URL}/${userId}/transactions/${id.$oid}`, {
     method: "PUT",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
@@ -37,7 +38,7 @@ export const updateTransaction = (updateTrans, id) => {
 
 export const deleteTransaction = (id) => {
   const userId = getActiveUserID();
-  fetch(`http://localhost:3000/users/${userId}/transactions/${id}`, {
+  fetch(`${BASE_URL}/${userId}/transactions/${id}`, {
     method: "DELETE",
   })
     .then((resp) => {
@@ -47,16 +48,17 @@ export const deleteTransaction = (id) => {
 };
 export const getMostExpenses = (max = 3) => {
   const userId = getActiveUserID();
-  return fetch(`http://localhost:3000/users/${userId}/transactions?max=${max}`);
+  return fetch(`${BASE_URL}/${userId}/transactions/max_debit/${max}`);
 };
 export const getGraphData = () => {
   const userId = getActiveUserID();
-  return fetch(`http://localhost:3000/users/${userId}/transactions?graph=1`);
+  return fetch(`${BASE_URL}/${userId}/transactions/graph_data`);
 };
 
 export const verifyLogin = (e) => {
   const { email, password } = e;
-  fetch(`http://localhost:3000/users?email=${email}&password=${password}`)
+
+  fetch(`${BASE_URL}?email=${email}&password=${encrypt(password)}`)
     .then((resp) => resp.json())
     .then((resp) => {
       const { userExist } = resp;
@@ -67,12 +69,12 @@ export const verifyLogin = (e) => {
         notify("Incorrect email or password!", NOTIFICATION_TYPE.error);
       }
     })
-    .catch((err) => console.log(err));
+    .catch((err) => notify(err.json(), NOTIFICATION_TYPE.error));
 };
 
 export const newSignUp = (e) => {
- 
-  fetch("http://localhost:3000/users", {
+ e.password=encrypt(e.password);
+  fetch(`${BASE_URL}`, {
     method: "POST",
     headers: {
       "Content-type": "application/json; charset=UTF-8",

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Input, Button, Radio, Select, DatePicker } from 'antd';
-import { InfoCircleOutlined } from '@ant-design/icons';
-import moment from 'moment';
 import { CATEGORY_OF_ICON, CREDIT,DEBIT } from '../../utility/constants';
 
 

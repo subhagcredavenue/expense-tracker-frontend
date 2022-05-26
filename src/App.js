@@ -1,6 +1,5 @@
 import "./App.css";
 import "./components/AppHeader";
-import Sidebar from "./components/AppHeader";
 import { useEffect, useState } from "react";
 import ListItem from "./components/Card";
 import { Button, Card, Col, Row, Tooltip } from "antd";

@@ -49,13 +49,14 @@ const xAxisTickFormatter = (value)=> moment(value).format("DD MMM YY")
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active) {
+      if(!payload)
+      {
+          return
+      }
       return (
         <div style={{padding:5,background:"#f0f2f5",borderRadius:2,border:"1px grey solid"}}>
           {payload[0].name} : ₹{payload[0].payload.amount}<br/>
-          Date : {moment(payload[0].payload._id.date).format('DD MMM YYYY')}
-          
-          
-        </div>
+          Date : {moment(payload[0].payload._id.date).format('DD MMM YYYY')} </div>
       );
     }
 
@@ -90,9 +91,9 @@ const xAxisTickFormatter = (value)=> moment(value).format("DD MMM YY")
               left: -20,
               bottom: 10,
             }}
-          > <XAxis dataKey="_id.date" angle="" tickFormatter={xAxisTickFormatter} allowDuplicatedCategories={false}/>
+          > <XAxis dataKey="_id.date" angle="" tickFormatter={xAxisTickFormatter} allowDuplicatedCategories={false} tickLine={false}/>
           <YAxis dataKey="amount" 
-          tickFormatter={yAxisTickFormatter}/>
+          tickFormatter={yAxisTickFormatter} />
          <Tooltip content={<CustomTooltip />} />
             <Area type="monotone" dataKey="amount" name="Credit" stroke="#000" fill="lightgreen" />
           </AreaChart>

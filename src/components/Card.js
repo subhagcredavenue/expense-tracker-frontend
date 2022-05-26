@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 
 // import './index.css';
-import { List, Avatar, Skeleton , Button, Menu, Dropdown} from 'antd';
+import { List, Skeleton} from 'antd';
 import ActionButton from './ActionButton';
 import { getIcon, getNumberSepratedByComma } from '../utility';
 import { CREDIT } from '../utility/constants';
