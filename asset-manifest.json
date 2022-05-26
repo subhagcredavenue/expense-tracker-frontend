@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/expense-web/static/css/main.d045c2a8.css",
+    "main.js": "/expense-web/static/js/main.e7389e64.js",
+    "static/js/787.40b4c778.chunk.js": "/expense-web/static/js/787.40b4c778.chunk.js",
+    "static/media/icon.webp": "/expense-web/static/media/icon.9a6a668e858b29daedca.webp",
+    "index.html": "/expense-web/index.html",
+    "main.d045c2a8.css.map": "/expense-web/static/css/main.d045c2a8.css.map",
+    "main.e7389e64.js.map": "/expense-web/static/js/main.e7389e64.js.map",
+    "787.40b4c778.chunk.js.map": "/expense-web/static/js/787.40b4c778.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d045c2a8.css",
+    "static/js/main.e7389e64.js"
+  ]
+}
