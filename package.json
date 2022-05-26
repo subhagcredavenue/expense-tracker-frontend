@@ -1,6 +1,6 @@
 {
   "name": "expense-web",
-  "homepage": "http://subhagcredavenue.github.io/expense-web",
+  "homepage": "https://subhagcredavenue.github.io/expense-tracker-frontend/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
