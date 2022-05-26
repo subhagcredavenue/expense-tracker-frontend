@@ -35,3 +35,4 @@ export const TRANSACTION_TYPE=[CREDIT,DEBIT]
 export const NOTIFICATION_TYPE={success:"success",error:"error"}
 
 export const BASE_URL="https://expense-tracker-rails.herokuapp.com/users"
+// export const BASE_URL="http://localhost:3000/users"
